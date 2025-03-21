@@ -82,3 +82,32 @@ history = model.fit(
 
 #e
 print("Evaluating...")
+test_loss, test_accuracy = model.evaluate(x_test, y_test, verbose=0)
+print(f"Test accuracy: {test_accuracy:.4f}")
+print(f"Test loss: {test_loss:.4f}")
+
+#p
+plt.figure(figsize=(15, 5))
+plt.subplot(1, 2, 1)
+plt.plot(history.history['accuracy'], label='Training')
+plt.plot(history.history['val_accuracy'], label='Validation')
+plt.title('Model Accuracy')
+plt.xlabel('Epoch')
+plt.ylabel('Accuracy')
+plt.legend()
+plt.subplot(1, 2, 2)
+plt.plot(history.history['loss'], label='Training')
+plt.plot(history.history['val_loss'], label='Validation')
+plt.title('Model Loss')
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.legend()
+plt.tight_layout()
+plt.savefig('learning_curves.png')
+plt.close()
+#predictions on test data
+predictions = model.predict(x_test)
+y_pred_classes = np.argmax(predictions, axis=1)
+#Confusion matrixcompute
+#Confusion matrix plot
+cm = confusion_matrix

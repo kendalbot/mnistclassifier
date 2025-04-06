@@ -1,4 +1,4 @@
-import tensorflow as tf
+UNDER CONSTRUCTION FOR FORSEEABLE FUTURE XD''' import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 import time
